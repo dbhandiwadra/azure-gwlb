@@ -11,7 +11,7 @@ az group create --name <resource-group> --location "eastus2euap"
 
 az deployment group create --name providertemplate --resource-group <resource-group> --template-file provider-simple-lb.json
 --parameters adminUsername=<user_name> adminPassword=<password> vmName=<vmseries-name> 
-customDataField=storage-account=<storagaccname>,access-key=<storageaccesskey>,file-share=<filesharename>,share-directory=.
+customDataField=storage-account=< storagaccname >,access-key=< storageaccesskey >,file-share=< filesharename >,share-directory=.
 
 3. **Consumer side Deployment**
 
