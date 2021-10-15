@@ -18,13 +18,11 @@ customDataField=storage-account=<storagaccname>,access-key=<storageaccesskey>,fi
 az deployment group create --name consumertemplate --resource-group <resource-group> --template-file consumer-simple-lb.json 
 --parameters adminUsername=<user_name> adminPassword=<password> providerResourceGroup=<resource-group>
 
-**Requirements:**
+## **Requirements:**
 
 - Minimum of PAN-OS 10.1.2 and vm-series plugin 2.1.2 is required
-
-**init-cfg data:**
-
-plugin-op-commands=azure-gwlb-inspect:enable+internal-port-2000+external-port-2001+internal-vni-800,external-vni-801
+- init-cfg.txt or custom data should include this: 
+  plugin-op-commands=azure-gwlb-inspect:enable+internal-port-2000+external-port-2001+internal-vni-800,external-vni-801
 
 ## **Documentation Reference:**
 
