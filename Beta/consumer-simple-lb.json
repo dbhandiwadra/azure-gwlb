@@ -17,6 +17,7 @@
       },
       "adminUsername": {
         "type": "string",
+        "defaultValue": "ubuntu",
         "metadata": {
           "description": "Admin username of os profile"
         }
@@ -254,7 +255,7 @@
         "typeHandlerVersion": "2.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "commandToExecute": "echo '<html><head><title>Go PaloAlto Networks - Azure GWLB works!</title></head><body>Welcome to PaloAlto Networks</body></html>' > index.html && python -m SimpleHTTPServer 80 &"
+          "commandToExecute": "echo '<html><head><title>Go PaloAlto Networks - Azure GWLB works!</title></head><body>Welcome to PaloAlto Networks</body></html>' >> /home/ubuntu/index.html && python -m SimpleHTTPServer 8080 &"
         }
       }
     },
@@ -294,7 +295,7 @@
               "name": "consumer_http_health_probe",
               "properties": {
                   "protocol": "Tcp",
-                  "port": 80,
+                  "port": 8080,
                   "intervalInSeconds": 5,
                   "numberOfProbes": 2
               }
@@ -316,7 +317,7 @@
                 "protocol": "tcp",
                 "enableTcpReset": true,
                 "frontendPort": 50000,
-                "backendPort": 80,
+                "backendPort": 8080,
                 "enableFloatingIP": false,
                 "idleTimeoutInMinutes": 5
               }

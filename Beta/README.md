@@ -16,7 +16,7 @@ customDataField=storage-account=< storagaccname >,access-key=< storageaccesskey 
 3. **Consumer side Deployment**
 
 az deployment group create --name consumertemplate --resource-group < resource-group > --template-file consumer-simple-lb.json 
---parameters adminUsername=< username > adminPassword=< password > providerResourceGroup=< resource-group >
+--parameters adminUsername=ubuntu adminPassword=< password > providerResourceGroup=< resource-group >
 
 ## **Requirements:**
 
@@ -24,6 +24,6 @@ az deployment group create --name consumertemplate --resource-group < resource-g
 - init-cfg.txt or custom data should include this: 
   plugin-op-commands=azure-gwlb-inspect:enable+internal-port-2000+external-port-2001+internal-vni-800,external-vni-801
 
-## **Documentation Reference:**
+
 
 
