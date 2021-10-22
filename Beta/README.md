@@ -10,7 +10,7 @@ az group create --name < resource-group > --location "eastus2euap"
 2. **Provider Deployment**
 
 az deployment group create --name providertemplate --resource-group < resource-group > --template-file provider-simple-lb.json
---parameters adminUsername=< username > adminPassword=< password > vmName=< vmseries-name > FirewallDnsName=<dns name> 
+--parameters adminUsername=< username > adminPassword=< password > vmName=< vmseries-name > FirewallDnsName=< dns name > 
 bootstrapStorageAccount=< storagaccname > bootstrapStorageAccountAccessKey=< storageaccesskey > bootstrapFileShare=< filesharename >
 
 3. **Consumer side Deployment**
