@@ -10,8 +10,8 @@ az group create --name < resource-group > --location "eastus2euap"
 2. **Provider Deployment**
 
 az deployment group create --name providertemplate --resource-group < resource-group > --template-file provider-simple-lb.json
---parameters adminUsername=< username > adminPassword=< password > vmName=< vmseries-name > 
-customDataField=storage-account=< storagaccname >,access-key=< storageaccesskey >,file-share=< filesharename >,share-directory=.
+--parameters adminUsername=< username > adminPassword=< password > vmName=< vmseries-name > FirewallDnsName=<dns name> 
+bootstrapStorageAccount=< storagaccname > bootstrapStorageAccountAccessKey=< storageaccesskey > bootstrapFileShare=< filesharename >
 
 3. **Consumer side Deployment**
 
@@ -22,7 +22,8 @@ az deployment group create --name consumertemplate --resource-group < resource-g
 
 - Minimum of PAN-OS 10.1.2 and vm-series plugin 2.1.2 is required
 - init-cfg.txt or custom data should include this: 
-  plugin-op-commands=azure-gwlb-inspect:enable+internal-port-2000+external-port-2001+internal-vni-800,external-vni-801
+  with default parameters: plugin-op-commands=azure-gwlb-inspect:enable
+  plugin-op-commands=azure-gwlb-inspect:enable+internal-port-3000+external-port-3001+internal-vni-900,external-vni-901
 
 
 

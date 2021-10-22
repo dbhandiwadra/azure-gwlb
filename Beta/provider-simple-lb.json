@@ -28,12 +28,31 @@
         "description": "Password for the administrator account for the VM-Series firewall.. Must be specified if Authentication Type is 'password'."
       }
     },
-    "customDataField": {
+    "bootstrapStorageAccount": {
       "type": "string",
-      "metadata": {
-          "description": "Credentials required by the firewall VM bootstrap code to access the storage"
+      "metadata":{
+        "description": "The name of the storage account that contains the bootstrap file share."
       }
     },
+   "bootstrapStorageAccountAccessKey": {
+      "type": "securestring",
+      "metadata":{
+        "description": "The access key for the bootstrap storage account."
+      }
+   },
+  "bootstrapFileShare": {
+      "type": "string",
+      "metadata":{
+          "description": "The name of the file share that contains the bootstrap folders."
+      }
+   },
+  "bootstrapSharedDir": {
+      "type": "string",
+      "defaultValue": "None",
+      "metadata":{
+              "description": "(OPTIONAL) The directory name under file share that contains the bootstrap folders."
+      }
+  },
     "imagePublisher": {
       "type": "string",
       "defaultValue": "paloaltonetworks",
@@ -132,7 +151,8 @@
     "providerMgmtSubnetId": "[concat(variables('providerVnetID'),'/subnets/',variables ('providerMgmtSubnet'))]",
     "fwpublicIPName": "fwPublicIP",
     "dnsnamefw": "[parameters('FirewallDnsName')]",
-    "publicIPAddressType": "Static"
+    "publicIPAddressType": "Static",
+    "customDataField": "[concat('storage-account=', parameters('bootstrapStorageAccount'), ',access-key=', parameters('bootstrapStorageAccountAccessKey'), ',file-share=', parameters('bootstrapFileShare'),',share-directory=', parameters('bootstrapSharedDir'))]"
   },
   "resources": [
     {
@@ -395,7 +415,7 @@
           "computerName": "[variables('providerVmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "customData": "[base64(parameters('customDataField'))]"
+          "customData": "[base64(variables('customDataField'))]"
         },
         "storageProfile": {
           "imageReference": {
