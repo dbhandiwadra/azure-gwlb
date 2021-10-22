@@ -21,10 +21,12 @@ az deployment group create --name consumertemplate --resource-group < resource-g
 ## **Requirements:**
 
 - Minimum of PAN-OS 10.1.2 and vm-series plugin 2.1.2 is required
-- init-cfg.txt or custom data should include this: 
-  with default parameters: plugin-op-commands=azure-gwlb-inspect:enable
+- init-cfg.txt should include this: 
 
-  plugin-op-commands=azure-gwlb-inspect:enable+internal-port-3000+external-port-3001+internal-vni-900,external-vni-901
+  with default parameters:
+  plugin-op-commands=azure-gwlb-inspect:enable
+
+  Otherwise, add as here : plugin-op-commands=azure-gwlb-inspect:enable+internal-port-3000+external-port-3001+internal-vni-900,external-vni-901
 
 
 
