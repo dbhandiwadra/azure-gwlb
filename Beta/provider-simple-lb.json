@@ -48,7 +48,7 @@
    },
   "bootstrapSharedDir": {
       "type": "string",
-      "defaultValue": "None",
+      "defaultValue": ".",
       "metadata":{
               "description": "(OPTIONAL) The directory name under file share that contains the bootstrap folders."
       }
@@ -62,7 +62,7 @@
     },
     "imageOffer": {
       "type": "string",
-      "defaultValue": "vmseries-flex",
+      "defaultValue": "vmseries-flex-preview",
       "metadata": {
         "description": "Image Offer"
       }
