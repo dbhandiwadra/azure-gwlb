@@ -62,7 +62,7 @@
     },
     "imageOffer": {
       "type": "string",
-      "defaultValue": "vmseries-flex-preview",
+      "defaultValue": "vmseries-flex",
       "metadata": {
         "description": "Image Offer"
       }
